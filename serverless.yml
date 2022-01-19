@@ -11,3 +11,10 @@ functions:
     handler: index.handler
     events:
       - http: GET /
+
+plugins:
+  - serverless-offline
+
+custom:
+  serverless-offline:
+    noPrependStageInUrl: true;
