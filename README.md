@@ -8,13 +8,13 @@ Your about to build an english dictionary app
 2. Set up a DynamoDB with `dictionary` table
 3. **DATABASE:**
    1. Parse & Insert all words, in a common structure, to `dictionary` table
-4. **BACKEND:**
+4. [x] **BACKEND:**
    1. build a REST API with the following end point(s):
-      1. `GET /:word` - if word has more than one parts of speech will return all words part of speech, else, will return a word + definition + part of speech.
-      2. `GET /:word/:partOfSpeech` - will return a word + definition + part of speech [(noun, verb, adjectives, etc...)](https://www.dictionary.com/e/parts-of-speech/)
-      3. `GET /part-of-speech/:part` - for example, `/part-of-speech/adjective`, will return a random word + definition + part of speech (`part` is enum)
-      4. `GET /part-of-speech/:part?letter=X` - for example, `/part-of-speech/noun?letter=m`, will return a random word with the same letter + definition + part of speech
-   2. **BONUS**: should be deployed as `lambda function`
+      1. [x] `GET /:word` - if word has more than one parts of speech will return all words part of speech, else, will return a word + definition + part of speech.
+      2. [x] `GET /:word/:partOfSpeech` - will return a word + definition + part of speech [(noun, verb, adjectives, etc...)](https://www.dictionary.com/e/parts-of-speech/)
+      3. [x] `GET /part-of-speech/:part` - for example, `/part-of-speech/adjective`, will return a random word + definition + part of speech (`part` is enum)
+      4. [x] `GET /part-of-speech/:part?letter=X` - for example, `/part-of-speech/noun?letter=m`, will return a random word with the same letter + definition + part of speech
+   2. **BONUS**: [x] should be deployed as `lambda function`
 5. **FRONTEND:**
    1. build a `create-react-app` english dictionary app (mobile first)
    2. URL routes:

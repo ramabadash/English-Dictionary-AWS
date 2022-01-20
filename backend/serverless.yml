@@ -1,4 +1,4 @@
-service: express-app-lambda
+service: express-app-lambda-dictionary
 
 provider:
   name: aws
@@ -21,7 +21,7 @@ provider:
           Resource: 'arn:aws:dynamodb:${self:provider.region}:*:table/${self:provider.environment.DYNAMODB_TABLE}'
 
 functions:
-  app:
+  dictionary-backend:
     handler: index.handler
     events:
       - http: GET /
