@@ -4,12 +4,19 @@ const { TABLE_NAME, PART_OF_SPEECH_DICT } = require('../utils/constants');
 
 // Get random word with part of speech
 exports.getWordWithPart = async (req, res, next) => {
+  const { letter } = req.query;
   const { part } = req.params;
   const params = {
     TableName: TABLE_NAME,
-    FilterExpression: '#pos = :pos',
-    ExpressionAttributeValues: { ':pos': PART_OF_SPEECH_DICT[part] },
-    ExpressionAttributeNames: { '#pos': 'pos' },
+    FilterExpression: '#pos = :pos AND contains(#word, :word)',
+    ExpressionAttributeValues: {
+      ':pos': PART_OF_SPEECH_DICT[part],
+      ':word': letter ? letter.toUpperCase() : '', // Contain a letter from the query params
+    },
+    ExpressionAttributeNames: {
+      '#pos': 'pos',
+      '#word': 'word',
+    },
   };
   try {
     const result = await dynamodb.scan(params).promise();
