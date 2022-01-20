@@ -22,10 +22,10 @@ provider:
 
 functions:
   app:
-    handler: backend/index.handler
+    handler: index.handler
     events:
       - http: GET /
-      # - http: GET {proxy+}
+      - http: GET {proxy+}
 
 plugins:
   - serverless-offline
