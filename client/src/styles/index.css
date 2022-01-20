@@ -1,0 +1,9 @@
+body {
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+  /* https://i.pinimg.com/564x/50/ba/d4/50bad4f612b3c7a050c973dd8c35d451.jpg */
+  background-image: url('https://i.pinimg.com/564x/4f/b3/10/4fb3108b15a209fa0332653a552880ce.jpg');
+  font-family: 'Actor';
+  text-align: center;
+}
