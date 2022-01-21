@@ -3,12 +3,14 @@ import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 //Types
 import { WordObj } from '../@types/types';
-
+// Style
+import '../styles/Word.css';
 /*---------- COMPONENT ----------*/
 function Word() {
   /***** STATES *****/
   const [paramWord, setParamWord] = useState(useParams().word);
   const [words, setWords] = useState<WordObj[]>([]);
+  const [loading, setLoading] = useState(false);
 
   /***** EFFECT *****/
   // Get word definition on first render
@@ -24,11 +26,15 @@ function Word() {
 
   // Get word from dictionary by the word
   const getWord = async (word: string) => {
+    setLoading(true);
     try {
       const { data } = await axios.get(`http://localhost:3000/${word}`);
       console.log(data);
 
       setWords(data);
+      setTimeout(() => {
+        setLoading(false);
+      }, 2000);
     } catch (error) {
       console.log(error); // TODO ERROR HANDLING
     }
@@ -36,33 +42,37 @@ function Word() {
 
   return (
     <div>
-      {words.map(({ word, pos, definitions }) => (
-        <div key={`${word}_${pos}`}>
-          <h2>{word}</h2>
-          <p>{pos}</p>
-          <div>
-            {definitions.map((definition, i) => (
-              <div key={i}>
-                <p>
-                  {definition.split(' ').map((word, i) => (
-                    <span
-                      onClick={() => {
-                        const cleanWord = word.replace(/[^a-zA-Z ]/g, '');
-                        getWord(cleanWord);
-                        navigate(`/${cleanWord}`);
-                      }}
-                      key={i}
-                    >
-                      {word}
-                      {'  '}
-                    </span>
-                  ))}
-                </p>
-              </div>
-            ))}
+      {loading ? (
+        <span className='loader'></span>
+      ) : (
+        words.map(({ word, pos, definitions }) => (
+          <div key={`${word}_${pos}`}>
+            <h2>{word}</h2>
+            <p>{pos}</p>
+            <div>
+              {definitions.map((definition, i) => (
+                <div key={i}>
+                  <p>
+                    {definition.split(' ').map((word, i) => (
+                      <span
+                        onClick={() => {
+                          const cleanWord = word.replace(/[^a-zA-Z ]/g, '');
+                          getWord(cleanWord);
+                          navigate(`/${cleanWord}`);
+                        }}
+                        key={i}
+                      >
+                        {word}
+                        {'  '}
+                      </span>
+                    ))}
+                  </p>
+                </div>
+              ))}
+            </div>
           </div>
-        </div>
-      ))}
+        ))
+      )}
     </div>
   );
 }
