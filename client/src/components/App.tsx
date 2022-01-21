@@ -1,13 +1,15 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Welcome from './Welcome';
 // Component
+import Welcome from './Welcome';
 import Word from './Word';
+import Navbar from './Navbar';
 
 /*---------- COMPONENT ----------*/
 function App() {
   return (
     <div>
+      <Navbar />
       <Router>
         <Routes>
           <Route path='/' element={<Welcome />} />
