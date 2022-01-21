@@ -5,6 +5,7 @@ import axios from 'axios';
 import { WordObj } from '../@types/types';
 // Style
 import '../styles/Word.css';
+
 /*---------- COMPONENT ----------*/
 function Word() {
   /***** STATES *****/
@@ -46,7 +47,7 @@ function Word() {
         <span className='loader'></span>
       ) : (
         words.map(({ word, pos, definitions }) => (
-          <div key={`${word}_${pos}`}>
+          <div className='word-div' key={`${word}_${pos}`}>
             <h2>{word}</h2>
             <p>{pos}</p>
             <div>

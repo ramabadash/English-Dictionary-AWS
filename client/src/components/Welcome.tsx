@@ -4,7 +4,7 @@ import '../styles/Welcome.css';
 
 function Welcome() {
   return (
-    <div>
+    <div className='welcome-div'>
       <h1>Welcome to your english dictionary!</h1>
       <img
         alt='book-pic'
