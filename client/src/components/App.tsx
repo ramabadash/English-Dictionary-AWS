@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Welcome from './Welcome';
 // Component
 import Word from './Word';
 
@@ -9,6 +10,7 @@ function App() {
     <div>
       <Router>
         <Routes>
+          <Route path='/' element={<Welcome />} />
           <Route path='/:word' element={<Word />} />
         </Routes>
       </Router>
