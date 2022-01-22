@@ -11,8 +11,8 @@ function Welcome() {
         id='book-pic'
         src='https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Open_book_nae_02.svg/2560px-Open_book_nae_02.svg.png'
       />
-      <ul>
-        <li>You can search any words you like!.</li>
+      <ul className='welcome-list'>
+        <li>You can search any words you like!</li>
         <li>
           You can have all the definitions of the word in the different parts of
           speech.
