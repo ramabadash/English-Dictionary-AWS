@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 // Components
 import Search from './Search';
 import WordsResult from './WordsResult';
+import WordNotFound from './WordNotFound';
 // Context
 import ApiContext from '../contexts/ApiContext';
 // Style
@@ -29,12 +30,14 @@ function WordsSearch() {
     <div>
       {loading ? (
         <span className='loader'></span>
-      ) : (
+      ) : words!.length > 0 ? (
         <div className='word-container-div'>
           <Search type='words' />
           <br />
           {<WordsResult words={words} />}
         </div>
+      ) : (
+        <WordNotFound />
       )}
     </div>
   );

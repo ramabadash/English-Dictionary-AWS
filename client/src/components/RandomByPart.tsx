@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 // Components
 import Search from './Search';
 import WordsResult from './WordsResult';
+import WordNotFound from './WordNotFound';
 // Context
 import ApiContext from '../contexts/ApiContext';
 // Style
@@ -28,12 +29,14 @@ function RandomByPart() {
     <div>
       {loading ? (
         <span className='loader'></span>
-      ) : (
+      ) : words!.length > 0 ? (
         <div className='random-container'>
           <Search type='random' />
           <br />
           {<WordsResult words={words} />}
         </div>
+      ) : (
+        <WordNotFound />
       )}
     </div>
   );
