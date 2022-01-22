@@ -25,6 +25,7 @@ function Welcome() {
           Plus you can get a random word from the specific parts of speech you
           choose.
         </li>
+        <li>Note! Every word is clickable!</li>
       </ul>
     </div>
   );

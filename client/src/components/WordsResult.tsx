@@ -4,6 +4,8 @@ import { useNavigate } from 'react-router-dom';
 import ApiContext from '../contexts/ApiContext';
 // Types
 import { WordObj } from '../@types/types';
+// Style
+import '../styles/WordsResult.css';
 
 /*---------- COMPONENT ----------*/
 
@@ -19,7 +21,11 @@ function WordsResult({ words }: { words: WordObj[] | undefined }) {
   const renderDefinitionsArr = (definitions: string[]) =>
     definitions.map((definition, i) => (
       <div key={i}>
-        <p>{splitDefinitionIntoSpans(definition)}</p>
+        <p className='definition-par'>
+          <i className='fab fa-diaspora'></i>
+          {'  '}
+          {splitDefinitionIntoSpans(definition)}
+        </p>
       </div>
     ));
 
@@ -64,17 +70,19 @@ function WordsResult({ words }: { words: WordObj[] | undefined }) {
   return (
     <div>
       {words!.map(({ word, pos, definitions }) => (
-        <div key={`${word}_${pos}`}>
-          <h2>{word}</h2>
-          <p
+        <div className='result-div' key={`${word}_${pos}`}>
+          <h2 className='word'>{word}</h2>
+          <h3
+            className='part-of-speech'
             onClick={() => {
               pos = convertPos(pos); // Convert to full word
               getRandWordByPart!(pos, undefined);
               navigate(`/part-of-speech/${pos}`);
             }}
           >
+            <i className='fas fa-project-diagram'></i> {'  '}
             {convertPos(pos)}
-          </p>
+          </h3>
           <div>{renderDefinitionsArr(definitions)}</div>
         </div>
       ))}
