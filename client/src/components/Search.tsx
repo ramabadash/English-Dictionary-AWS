@@ -1,17 +1,20 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
-
+// Context
+import ApiContext from '../contexts/ApiContext';
 // Style
 import '../styles/Search.css';
 
 /***** PROP TYPE *****/
 interface SearchProp {
-  onSearch: (word: string, partOfSpeech: string | undefined) => void;
   type: string;
 }
 
 /*---------- COMPONENT ----------*/
-function Search({ onSearch, type }: SearchProp) {
+function Search({ type }: SearchProp) {
+  /***** CONTEXT *****/
+  const { getWord } = useContext(ApiContext);
+
   /***** STATE *****/
   const [searchWord, setSearchWord] = useState('');
   const [partOfSpeech, setPartOfSpeech] = useState<string | undefined>();
@@ -25,12 +28,16 @@ function Search({ onSearch, type }: SearchProp) {
       <div className='search'>
         <button
           onClick={() => {
-            onSearch(searchWord, partOfSpeech);
-            if (partOfSpeech) {
-              navigate(`/${searchWord}/${partOfSpeech}`);
-            } else {
-              navigate(`/${searchWord}`);
-            }
+            // Api request
+            getWord!(searchWord, partOfSpeech);
+
+            // Navigate to the right route
+            const whereToNavigate = partOfSpeech
+              ? `/${searchWord}/${partOfSpeech}`
+              : `/${searchWord}`;
+            navigate(whereToNavigate);
+
+            // Clean search history
             setSearchWord('');
             setPartOfSpeech('');
           }}
