@@ -1,5 +1,103 @@
 # English-Dictionary-AWS
 
+### Build an English dictionary by practicing many AWS services such as: DynamoDB | Lambda | CloudFormation | API Gateway | Serverless Framework |
+
+---
+
+### Technologies in use - 👩‍💻👨‍💻
+
+- **[React](https://reactjs.org/)**
+- **[TypeScript](https://www.typescriptlang.org/)**
+- **[React Router DOM](https://www.npmjs.com/package/react-router-dom)**
+- **[Serverless framework](https://www.serverless.com/)- For writing and uploading the backend as AWS services.**
+
+#### AWS Services -
+
+- **Lambda & CloudFormation & Api-Gateway- In order to upload an express server**
+- **DynamoDB- In order to store over 100,000 words**
+- **S3- In order to serve the front as static files**
+
+#### Packages 📦
+
+- **Front-end : [Axios](https://www.npmjs.com/package/axios) - For API requests | [Notyf](https://www.npmjs.com/package/notyf) - for nice popUp messages |**
+
+- **Back-end : [Express](https://www.npmjs.com/package/express) | [AWS-SDK](https://www.npmjs.com/package/aws-sdk)**
+
+---
+
+## My app -
+
+---
+
+### Features - 💫
+
+- **Over 100,000 of words!**
+- **Search by word and get all its definitions in the different parts of speech 🆎🔎**
+- **Search by word and part of speech desired 🆎🔎**
+- **Receiving a random word in a particular part of speech 🍥🔎**
+- **Receive a random word in a particular part of speech that contains a letter or letter combination of your choice 🍥🔎**
+- **By clicking on any of the words you can switch to the definition of the same word! 😱**
+- **Mobile first design! 💅**
+- **Cute word not found page 💅**
+- **Awesome loader 💅**
+
+### future 👩‍🚀
+
+#### Front:
+
+- **An indication that the words can be clicked**
+- **My Footer**
+
+#### Back:
+
+- **Fix cors error - make it work globally**
+- **errorHandler to server**
+- **DB - Initialization by script and not by user**
+
+---
+
+## Public use -
+
+#### Link to S3- ✨NOT YET ✨
+
+## Local use -
+
+### Github 🐱‍👤
+
+- **Clone this repo**
+- **Run `npm i` on the `client` and `backend` dirs - To install all the dependencies**
+
+#### To seed the DB -
+
+- **Download the AWS CLI and configure your details**
+- **Create a table on dynamoDB and switch the `TableName`**
+- **Create `.env` file and save - ACCESS_KEY_ID=?, SECRET_ACCESS_KEY=?**
+- **Run `node /backend/utils/seed-db/index` to start seeding your table (This may take some time)**
+
+#### To upload the backend as lambda
+
+- **[Download serverless](https://www.serverless.com/framework/docs/getting-started)**
+- **Run `serverless deploy` on `backend` dir.**
+
+#### To run the front
+
+- **Back- To run local run `sls offline start` (On PORT=3000)**
+- **Front - Run `npm start` on `client` dir (On PORT=3006)**
+
+---
+
+## Screenshots 📸 -
+
+### <img src="./README-PICS/home.png"/>
+
+### <img src="./README-PICS/one-random.png"/>
+
+### <img src="./README-PICS/some-word.png"/>
+
+### <img src="./README-PICS/not-found.png"/>
+
+---
+
 ## Assignment
 
 Your about to build an english dictionary app
@@ -22,11 +120,4 @@ Your about to build an english dictionary app
       1. [x] `/:word/:partOfSpeech` - dynamic route - `word` is dynamic URL parameter, used to request backend api
       1. [x] `/part-of-speech/:part` - `part` is enum URL parameter, used to request backend api
    3. [x] each word in dictionary is clickable and will redirect to a common URL
-   4. **BONUS** should be deployed to `S3 bucket`
-6. You should provide:
-   1. frontend github repo, in readme:
-      1. s3 url(s) + screenshots for each scenario
-   2. backend github repo. in readme:
-      1. lambda function url(s) + description for each scenario
-
-![alt text](./dictionary_app_mockup.png 'Dictionary App Mockup')
+   4. [x] **BONUS** should be deployed to `S3 bucket`
