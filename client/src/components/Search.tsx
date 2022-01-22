@@ -4,7 +4,7 @@ import '../styles/Search.css';
 
 /***** PROP TYPE *****/
 interface SearchProp {
-  onSearch: (word: string) => void;
+  onSearch: (word: string, partOfSpeech: string | undefined) => void;
   type: string;
 }
 
@@ -12,14 +12,14 @@ interface SearchProp {
 function Search({ onSearch, type }: SearchProp) {
   /***** STATE *****/
   const [searchWord, setSearchWord] = useState('');
-  const [partOfSpeech, setPartOfSpeech] = useState('');
+  const [partOfSpeech, setPartOfSpeech] = useState('all');
 
   return (
     <div>
       <div className='search'>
         <button
           onClick={() => {
-            onSearch(searchWord);
+            onSearch(searchWord, partOfSpeech);
             setSearchWord('');
           }}
         >

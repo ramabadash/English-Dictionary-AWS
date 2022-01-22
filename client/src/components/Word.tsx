@@ -18,7 +18,7 @@ function Word() {
   // Get word definition on first render
   useEffect(() => {
     if (paramWord) {
-      getWord(paramWord);
+      getWord(paramWord, undefined);
     }
   }, [paramWord]);
 
@@ -27,13 +27,17 @@ function Word() {
   const navigate = useNavigate();
 
   // Get word from dictionary by the word
-  const getWord = async (word: string) => {
-    setLoading(true);
+  const getWord = async (word: string, partOfSpeech: string | undefined) => {
+    setLoading(true); // Start loader
     try {
-      const { data } = await axios.get(`http://localhost:3000/${word}`);
-      console.log(data);
+      const requestUrl = partOfSpeech
+        ? `http://localhost:3000/${word}/${partOfSpeech}`
+        : `http://localhost:3000/${word}`;
 
-      setWords(data);
+      const { data } = await axios.get(requestUrl);
+      setWords(data); // Set result
+
+      // Stop loader
       setTimeout(() => {
         setLoading(false);
       }, 2000);
@@ -62,7 +66,7 @@ function Word() {
                         <span
                           onClick={() => {
                             const cleanWord = word.replace(/[^a-zA-Z ]/g, '');
-                            getWord(cleanWord);
+                            getWord(cleanWord, undefined);
                             navigate(`/${cleanWord}`);
                           }}
                           key={i}
