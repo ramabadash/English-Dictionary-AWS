@@ -12,15 +12,17 @@ interface SearchProp {
 function Search({ onSearch, type }: SearchProp) {
   /***** STATE *****/
   const [searchWord, setSearchWord] = useState('');
-  const [partOfSpeech, setPartOfSpeech] = useState('all');
+  const [partOfSpeech, setPartOfSpeech] = useState<string | undefined>();
 
   return (
     <div>
       <div className='search'>
         <button
           onClick={() => {
+            console.log(searchWord, partOfSpeech);
             onSearch(searchWord, partOfSpeech);
             setSearchWord('');
+            setPartOfSpeech('');
           }}
         >
           <i className='fa fa-search' style={{ fontSize: '18px' }}></i>
@@ -38,7 +40,7 @@ function Search({ onSearch, type }: SearchProp) {
         )}
         <select onChange={e => setPartOfSpeech(e.target.value)}>
           {/* If the search render from the Word component - add all option*/}
-          {type === 'words' ? <option value='all'>All</option> : ''}
+          {type === 'words' ? <option value={undefined}>All</option> : ''}
           <option value='adjectives'>Adjectives</option>
           <option value='adverbs'>Adverbs</option>
           <option value='interjections'>Interjections</option>
