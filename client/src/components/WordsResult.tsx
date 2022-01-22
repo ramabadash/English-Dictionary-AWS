@@ -9,7 +9,7 @@ import { WordObj } from '../@types/types';
 
 function WordsResult({ words }: { words: WordObj[] | undefined }) {
   /***** CONTEXT *****/
-  const { getWord } = useContext(ApiContext);
+  const { getWord, getRandWordByPart } = useContext(ApiContext);
 
   /***** FUNCTIONS *****/
   // Navigation
@@ -39,12 +39,42 @@ function WordsResult({ words }: { words: WordObj[] | undefined }) {
       </span>
     ));
 
+  // Convert to full word
+  const convertPos = (pos: string) => {
+    const partOfSpeechMap = [
+      { 'adv.': 'adverbs' },
+      { 'n.': 'nouns' },
+      { 'v.': 'verbs' },
+      { 'prep.': 'prepositions' },
+      { 'conj.': 'conjunctions' },
+      { 'interj.': 'interjections' },
+      { 'pron.': 'pronouns' },
+      { 'a.': 'adjectives' },
+    ];
+
+    let returnedPartOfSpeech = '';
+    partOfSpeechMap.forEach((partOfSpeech, i) => {
+      if (Object.keys(partOfSpeech)[0] === pos) {
+        returnedPartOfSpeech = Object.values(partOfSpeech)[0];
+      }
+    });
+    return returnedPartOfSpeech;
+  };
+
   return (
     <div>
       {words!.map(({ word, pos, definitions }) => (
         <div key={`${word}_${pos}`}>
           <h2>{word}</h2>
-          <p>{pos}</p>
+          <p
+            onClick={() => {
+              pos = convertPos(pos); // Convert to full word
+              getRandWordByPart!(pos, undefined);
+              navigate(`/part-of-speech/${pos}`);
+            }}
+          >
+            {convertPos(pos)}
+          </p>
           <div>{renderDefinitionsArr(definitions)}</div>
         </div>
       ))}
