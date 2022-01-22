@@ -6,3 +6,13 @@
   height: 40vh;
   width: 30vh;
 }
+
+.back-to-search {
+  background-color: #00417a;
+  color: #ddd;
+  border-radius: 25px;
+  font-size: 15px;
+  padding: 0.5em;
+  font-family: 'Actor';
+  font-weight: bold;
+}

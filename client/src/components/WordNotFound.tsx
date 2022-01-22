@@ -25,6 +25,7 @@ function WordNotFound() {
         src='https://i.pinimg.com/originals/73/1b/ca/731bca966bb1bb956c7bab002bc0e6de.png'
       />
       <button
+        className='back-to-search'
         onClick={() => {
           getWord!('example', undefined);
           navigate('/example');
