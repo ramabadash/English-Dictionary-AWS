@@ -5,6 +5,7 @@ import axios from 'axios';
 import { WordObj } from '../@types/types';
 // Style
 import '../styles/Word.css';
+import Search from './Search';
 
 /*---------- COMPONENT ----------*/
 function Word() {
@@ -46,33 +47,37 @@ function Word() {
       {loading ? (
         <span className='loader'></span>
       ) : (
-        words.map(({ word, pos, definitions }) => (
-          <div className='word-div' key={`${word}_${pos}`}>
-            <h2>{word}</h2>
-            <p>{pos}</p>
-            <div>
-              {definitions.map((definition, i) => (
-                <div key={i}>
-                  <p>
-                    {definition.split(' ').map((word, i) => (
-                      <span
-                        onClick={() => {
-                          const cleanWord = word.replace(/[^a-zA-Z ]/g, '');
-                          getWord(cleanWord);
-                          navigate(`/${cleanWord}`);
-                        }}
-                        key={i}
-                      >
-                        {word}
-                        {'  '}
-                      </span>
-                    ))}
-                  </p>
-                </div>
-              ))}
+        <div className='word-container-div'>
+          <Search onSearch={getWord} type='words' />
+          <br />
+          {words.map(({ word, pos, definitions }) => (
+            <div key={`${word}_${pos}`}>
+              <h2>{word}</h2>
+              <p>{pos}</p>
+              <div>
+                {definitions.map((definition, i) => (
+                  <div key={i}>
+                    <p>
+                      {definition.split(' ').map((word, i) => (
+                        <span
+                          onClick={() => {
+                            const cleanWord = word.replace(/[^a-zA-Z ]/g, '');
+                            getWord(cleanWord);
+                            navigate(`/${cleanWord}`);
+                          }}
+                          key={i}
+                        >
+                          {word}
+                          {'  '}
+                        </span>
+                      ))}
+                    </p>
+                  </div>
+                ))}
+              </div>
             </div>
-          </div>
-        ))
+          ))}
+        </div>
       )}
     </div>
   );
