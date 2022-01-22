@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 // Component
 import Welcome from './Welcome';
-import Word from './Word';
+import WordsSearch from './WordsSearch';
 import Navbar from './Navbar';
 
 /*---------- COMPONENT ----------*/
@@ -13,8 +13,8 @@ function App() {
         <Navbar />
         <Routes>
           <Route path='/' element={<Welcome />} />
-          <Route path='/:word' element={<Word />} />
-          <Route path='/:word/:partOfSpeech' element={<Word />} />
+          <Route path='/:word' element={<WordsSearch />} />
+          <Route path='/:word/:partOfSpeech' element={<WordsSearch />} />
         </Routes>
       </Router>
     </div>

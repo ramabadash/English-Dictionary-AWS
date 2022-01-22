@@ -9,7 +9,7 @@ import { WordObj } from '../@types/types';
 import '../styles/Word.css';
 
 /*---------- COMPONENT ----------*/
-function Word() {
+function WordsSearch() {
   /***** STATES *****/
   const [paramWord, setParamWord] = useState(useParams().word);
   const [words, setWords] = useState<WordObj[]>([]);
@@ -92,4 +92,4 @@ function Word() {
   );
 }
 
-export default Word;
+export default WordsSearch;
