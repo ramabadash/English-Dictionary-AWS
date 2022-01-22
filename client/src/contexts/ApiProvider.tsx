@@ -9,6 +9,7 @@ function ApiProvider({ children }: { children: JSX.Element[] | JSX.Element }) {
   /***** STATES *****/
   const [words, setWords] = useState<WordObj[]>([]); // Arr of word result
   const [loading, setLoading] = useState(false); // Is loading
+  const BASE_URL = 'http://localhost:3000';
 
   /***** FUNCTIONS - NETWORKING *****/
 
@@ -17,8 +18,8 @@ function ApiProvider({ children }: { children: JSX.Element[] | JSX.Element }) {
     setLoading(true); // Start loader
     try {
       const requestUrl = partOfSpeech
-        ? `http://localhost:3000/${word}/${partOfSpeech}`
-        : `http://localhost:3000/${word}`;
+        ? `${BASE_URL}/${word}/${partOfSpeech}`
+        : `${BASE_URL}/${word}`;
 
       const { data } = await axios.get(requestUrl);
       setWords(data); // Set result
@@ -40,8 +41,8 @@ function ApiProvider({ children }: { children: JSX.Element[] | JSX.Element }) {
     setLoading(true); // Start loader
     try {
       const requestUrl = letter
-        ? `http://localhost:3000/part-of-speech/${partOfSpeech}?letter=${letter}`
-        : `http://localhost:3000/part-of-speech/${partOfSpeech}`;
+        ? `${BASE_URL}/part-of-speech/${partOfSpeech}?letter=${letter}`
+        : `${BASE_URL}/part-of-speech/${partOfSpeech}`;
 
       const { data } = await axios.get(requestUrl);
 
