@@ -1,0 +1,15 @@
+.random-container {
+  margin-top: 50px;
+}
+
+.random-container .search {
+  margin: auto;
+}
+
+.random-container select {
+  width: 40%;
+}
+
+.random-container input[type='text'] {
+  width: 40%;
+}

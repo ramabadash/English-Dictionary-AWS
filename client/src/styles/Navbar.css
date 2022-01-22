@@ -1,0 +1,84 @@
+/* styling navlist */
+#navlist {
+  background-color: #00417a;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+}
+
+/* styling navlist anchor element */
+.nav-item {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 12px;
+  text-decoration: none;
+  font-size: 15px;
+}
+
+.navlist-right {
+  float: right;
+}
+
+/* hover effect of navlist anchor element */
+#navlist span:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.logo {
+  float: right;
+  margin: 5px;
+}
+
+.logo-pic {
+  height: 25px;
+}
+
+/***** SIDE NAV *****/
+.sideNav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #00417a;
+  overflow-x: hidden;
+  transition: 0.3s;
+  padding-top: 60px;
+  text-align: left;
+}
+
+.sideNav span {
+  padding: 8px 8px 8px 8px;
+  text-decoration: none;
+  font-size: 15px;
+  color: #f1f1f1;
+  display: block;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.sideNav span:hover {
+  color: #818181;
+}
+
+.sideNav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+@media screen and (max-height: 450px) {
+  .sideNav {
+    padding-top: 15px;
+  }
+  .sideNav a {
+    font-size: 18px;
+  }
+}

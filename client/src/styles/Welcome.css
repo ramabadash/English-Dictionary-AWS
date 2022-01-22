@@ -1,0 +1,33 @@
+.welcome-div {
+  margin-top: 100px;
+}
+
+#book-pic {
+  width: 50%;
+  height: 30%;
+}
+
+.welcome-list {
+  list-style: none;
+  padding: 0;
+  margin: auto;
+  width: 80%;
+}
+
+.welcome-list li {
+  display: block;
+  font-size: 1.25em;
+  text-align: left;
+  margin-top: 10px;
+  padding: 0.5em;
+  font-weight: bold;
+  background-color: rgba(122, 0, 0, 0.6);
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+  top: 0;
+  transition: top ease 0.5s;
+}
+
+.welcome-list li:hover {
+  position: relative;
+  top: -10px;
+}
