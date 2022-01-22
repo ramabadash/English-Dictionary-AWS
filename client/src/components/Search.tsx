@@ -13,35 +13,54 @@ interface SearchProp {
 /*---------- COMPONENT ----------*/
 function Search({ type }: SearchProp) {
   /***** CONTEXT *****/
-  const { getWord } = useContext(ApiContext);
+  const { getWord, getRandWordByPart } = useContext(ApiContext);
 
   /***** STATE *****/
+  // For word searching
   const [searchWord, setSearchWord] = useState('');
   const [partOfSpeech, setPartOfSpeech] = useState<string | undefined>();
+
+  // For random word by part
+  const [letter, setLetter] = useState<string | undefined>();
 
   /***** FUNCTIONS *****/
   // Navigation
   const navigate = useNavigate();
 
+  // Search by the type of search in props
+  const handleSearchClick = () => {
+    // If the user search for words
+    if (type === 'words') {
+      // Api request
+      getWord!(searchWord, partOfSpeech);
+
+      // Navigate to the right route
+      const whereToNavigate = partOfSpeech
+        ? `/${searchWord}/${partOfSpeech}`
+        : `/${searchWord}`;
+      navigate(whereToNavigate);
+    } else {
+      // If the user search for parts
+      const part = partOfSpeech || 'verbs';
+      getRandWordByPart!(part, letter);
+
+      // Navigate to the right route
+      const whereToNavigate = letter
+        ? `/part-of-speech/${part}?letter=${letter}`
+        : `/part-of-speech/${part}`;
+      navigate(whereToNavigate);
+    }
+
+    // Clean search history
+    setSearchWord('');
+    setPartOfSpeech(undefined);
+    setLetter(undefined);
+  };
+
   return (
     <div>
       <div className='search'>
-        <button
-          onClick={() => {
-            // Api request
-            getWord!(searchWord, partOfSpeech);
-
-            // Navigate to the right route
-            const whereToNavigate = partOfSpeech
-              ? `/${searchWord}/${partOfSpeech}`
-              : `/${searchWord}`;
-            navigate(whereToNavigate);
-
-            // Clean search history
-            setSearchWord('');
-            setPartOfSpeech('');
-          }}
-        >
+        <button onClick={handleSearchClick}>
           <i className='fa fa-search' style={{ fontSize: '18px' }}></i>
         </button>
         {/* If the search render from the Word component - add search input */}
@@ -53,7 +72,12 @@ function Search({ type }: SearchProp) {
             onChange={e => setSearchWord(e.target.value)}
           />
         ) : (
-          ''
+          <input
+            type='text'
+            placeholder=' Type a letter'
+            name='search'
+            onChange={e => setLetter(e.target.value)}
+          />
         )}
         <select onChange={e => setPartOfSpeech(e.target.value)}>
           {/* If the search render from the Word component - add all option*/}

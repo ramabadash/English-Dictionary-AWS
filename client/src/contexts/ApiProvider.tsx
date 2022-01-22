@@ -40,7 +40,7 @@ function ApiProvider({ children }: { children: JSX.Element[] | JSX.Element }) {
     setLoading(true); // Start loader
     try {
       const requestUrl = letter
-        ? `http://localhost:3000/part-of-speech/${partOfSpeech}/${letter}`
+        ? `http://localhost:3000/part-of-speech/${partOfSpeech}?letter=${letter}`
         : `http://localhost:3000/part-of-speech/${partOfSpeech}`;
 
       const { data } = await axios.get(requestUrl);

@@ -15,7 +15,6 @@ function RandomByPart() {
 
   /***** STATES *****/
   const [paramPart, setParamPart] = useState(useParams().part);
-  const [letter, setLetter] = useState('');
 
   /***** EFFECT *****/
   // Get word definition on paramWord change
