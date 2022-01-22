@@ -15,13 +15,13 @@ Your about to build an english dictionary app
       3. [x] `GET /part-of-speech/:part` - for example, `/part-of-speech/adjective`, will return a random word + definition + part of speech (`part` is enum)
       4. [x] `GET /part-of-speech/:part?letter=X` - for example, `/part-of-speech/noun?letter=m`, will return a random word with the same letter + definition + part of speech
    2. [x] **BONUS**: should be deployed as `lambda function`
-5. **FRONTEND:**
-   1. build a `create-react-app` english dictionary app (mobile first)
-   2. URL routes:
-      1. `/:word` - dynamic route - `word` is dynamic URL parameter, used to request backend api
-      1. `/:word/:partOfSpeech` - dynamic route - `word` is dynamic URL parameter, used to request backend api
-      1. `/part-of-speech/:part` - `part` is enum URL parameter, used to request backend api
-   3. each word in dictionary is clickable and will redirect to a common URL
+5. [x] **FRONTEND:**
+   1. [x] build a `create-react-app` english dictionary app (mobile first)
+   2. [x] URL routes:
+      1. [x] `/:word` - dynamic route - `word` is dynamic URL parameter, used to request backend api
+      1. [x] `/:word/:partOfSpeech` - dynamic route - `word` is dynamic URL parameter, used to request backend api
+      1. [x] `/part-of-speech/:part` - `part` is enum URL parameter, used to request backend api
+   3. [x] each word in dictionary is clickable and will redirect to a common URL
    4. **BONUS** should be deployed to `S3 bucket`
 6. You should provide:
    1. frontend github repo, in readme:
