@@ -9,8 +9,8 @@ import Navbar from './Navbar';
 function App() {
   return (
     <div>
-      <Navbar />
       <Router>
+        <Navbar />
         <Routes>
           <Route path='/' element={<Welcome />} />
           <Route path='/:word' element={<Word />} />
