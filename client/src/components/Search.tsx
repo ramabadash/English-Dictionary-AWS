@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+
 // Style
 import '../styles/Search.css';
 
@@ -14,13 +16,21 @@ function Search({ onSearch, type }: SearchProp) {
   const [searchWord, setSearchWord] = useState('');
   const [partOfSpeech, setPartOfSpeech] = useState<string | undefined>();
 
+  /***** FUNCTIONS *****/
+  // Navigation
+  const navigate = useNavigate();
+
   return (
     <div>
       <div className='search'>
         <button
           onClick={() => {
-            console.log(searchWord, partOfSpeech);
             onSearch(searchWord, partOfSpeech);
+            if (partOfSpeech) {
+              navigate(`/${searchWord}/${partOfSpeech}`);
+            } else {
+              navigate(`/${searchWord}`);
+            }
             setSearchWord('');
             setPartOfSpeech('');
           }}

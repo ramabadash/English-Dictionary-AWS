@@ -14,6 +14,7 @@ function App() {
         <Routes>
           <Route path='/' element={<Welcome />} />
           <Route path='/:word' element={<Word />} />
+          <Route path='/:word/:partOfSpeech' element={<Word />} />
         </Routes>
       </Router>
     </div>
