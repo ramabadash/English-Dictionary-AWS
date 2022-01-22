@@ -1,0 +1,11 @@
+.random-container {
+  margin-top: 50px;
+}
+
+.random-container .search {
+  margin: auto;
+}
+
+.random-container select {
+  width: 80%;
+}

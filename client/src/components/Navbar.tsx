@@ -44,7 +44,14 @@ function Navbar() {
         >
           Search a word
         </span>
-        <span>Get random word by part of speech</span>
+        <span
+          onClick={() => {
+            navigate('/part-of-speech/verbs');
+            closeNav();
+          }}
+        >
+          Get random word by part of speech
+        </span>
       </div>
 
       <span className='nav-item'>

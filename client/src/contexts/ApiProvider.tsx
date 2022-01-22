@@ -44,7 +44,8 @@ function ApiProvider({ children }: { children: JSX.Element[] | JSX.Element }) {
         : `http://localhost:3000/part-of-speech/${partOfSpeech}`;
 
       const { data } = await axios.get(requestUrl);
-      setWords(data); // Set result
+
+      setWords([data]); // Set result
 
       // Stop loader
       setTimeout(() => {
