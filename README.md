@@ -2,6 +2,14 @@
 
 ### Build an English dictionary by practicing many AWS services such as: DynamoDB | Lambda | CloudFormation | API Gateway | Serverless Framework |
 
+<img src="https://upload.wikimedia.org/wikipedia/commons/f/fd/DynamoDB.png" height="50px" width="50px">
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Orange_lambda.svg/980px-Orange_lambda.svg.png" height="50px" width="50px">
+<img src="https://www.pulumi.com/logos/tech/aws_cloudformation.png" height="50px" width="50px">
+<img src="https://openclipart.org/download/316471/1552081289.svg" height="50px" width="50px">
+<img src="https://getcommandeer.com/_nuxt/img/4a7600a.png" height="50px" width="50px">
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Typescript_logo_2020.svg/1200px-Typescript_logo_2020.svg.png" height="50px" width="50px">
+<img src="https://www.obg.eu.com/img/technologies/react.png" height="50px" width="50px">
+
 ---
 
 ### Technologies in use - 👩‍💻👨‍💻
@@ -13,9 +21,9 @@
 
 #### AWS Services -
 
-- **Lambda & CloudFormation & Api-Gateway- In order to upload an express server**
-- **DynamoDB- In order to store over 100,000 words**
-- **S3- In order to serve the front as static files**
+- **Lambda & CloudFormation & Api-Gateway- In order to upload an express server 🔼☁**
+- **DynamoDB- In order to store over 100,000 words ☁**
+- **S3- In order to serve the front as static files ☁**
 
 #### Packages 📦
 
