@@ -4,6 +4,10 @@ import axios from 'axios';
 import ApiContext from './ApiContext';
 //Types
 import { WordObj } from '../@types/types';
+/***** POP-UP MESSAGES *****/
+import { Notyf } from 'notyf';
+import 'notyf/notyf.min.css';
+const notyf = new Notyf();
 
 function ApiProvider({ children }: { children: JSX.Element[] | JSX.Element }) {
   /***** STATES *****/
@@ -29,7 +33,8 @@ function ApiProvider({ children }: { children: JSX.Element[] | JSX.Element }) {
         setLoading(false);
       }, 2000);
     } catch (error) {
-      console.log(error); // TODO ERROR HANDLING
+      console.log(error);
+      notyf.error(`Can't get your word, sorry!`); //error message
     }
   };
 
@@ -53,7 +58,8 @@ function ApiProvider({ children }: { children: JSX.Element[] | JSX.Element }) {
         setLoading(false);
       }, 2000);
     } catch (error) {
-      console.log(error); // TODO ERROR HANDLING
+      console.log(error);
+      notyf.error(`Can't get your word, sorry!`); //error message
     }
   };
 
