@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
+// Components
+import Search from './Search';
 //Types
 import { WordObj } from '../@types/types';
 // Style
 import '../styles/Word.css';
-import Search from './Search';
 
 /*---------- COMPONENT ----------*/
 function Word() {
@@ -15,7 +16,7 @@ function Word() {
   const [loading, setLoading] = useState(false);
 
   /***** EFFECT *****/
-  // Get word definition on first render
+  // Get word definition on paramWord change
   useEffect(() => {
     if (paramWord) {
       getWord(paramWord, undefined);
@@ -46,6 +47,30 @@ function Word() {
     }
   };
 
+  // Render definitions array
+  const renderDefinitionsArr = (definitions: string[]) =>
+    definitions.map((definition, i) => (
+      <div key={i}>
+        <p>{splitDefinitionIntoSpans(definition)}</p>
+      </div>
+    ));
+
+  // Split one definition into clickable spans
+  const splitDefinitionIntoSpans = (definition: string) =>
+    definition.split(' ').map((word, i) => (
+      <span
+        onClick={() => {
+          const cleanWord = word.replace(/[^a-zA-Z ]/g, '');
+          getWord(cleanWord, undefined);
+          navigate(`/${cleanWord}`);
+        }}
+        key={i}
+      >
+        {word}
+        {'  '}
+      </span>
+    ));
+
   return (
     <div>
       {loading ? (
@@ -58,27 +83,7 @@ function Word() {
             <div key={`${word}_${pos}`}>
               <h2>{word}</h2>
               <p>{pos}</p>
-              <div>
-                {definitions.map((definition, i) => (
-                  <div key={i}>
-                    <p>
-                      {definition.split(' ').map((word, i) => (
-                        <span
-                          onClick={() => {
-                            const cleanWord = word.replace(/[^a-zA-Z ]/g, '');
-                            getWord(cleanWord, undefined);
-                            navigate(`/${cleanWord}`);
-                          }}
-                          key={i}
-                        >
-                          {word}
-                          {'  '}
-                        </span>
-                      ))}
-                    </p>
-                  </div>
-                ))}
-              </div>
+              <div>{renderDefinitionsArr(definitions)}</div>
             </div>
           ))}
         </div>
