@@ -13,11 +13,11 @@
 - **[React Router DOM](https://www.npmjs.com/package/react-router-dom)**
 - **[Serverless framework](https://www.serverless.com/)- For writing and uploading the backend as AWS services.**
 
-#### AWS Services -
+#### AWS Services - ☁
 
-- **Lambda & CloudFormation & Api-Gateway- In order to upload an express server 🔼☁**
-- **DynamoDB- In order to store over 100,000 words ☁**
-- **S3- In order to serve the front as static files ☁**
+- **Lambda & CloudFormation & Api-Gateway - In order to upload an express server 💻⚙**
+- **DynamoDB - In order to store over 100,000 words 🗃**
+- **S3 - In order to serve the front as static files 🗑🗂**
 
 #### Packages 📦
 
@@ -57,7 +57,16 @@
 
 ---
 
-## Local use -
+## Global use - 🌎
+
+### ✨ http://dictionary-rama.s3-website-eu-west-1.amazonaws.com ✨
+
+#### Currently blocked so it does not cost me any money ❌💸
+
+- **The Front was served in S3 bucket as a static file.**
+- **Using DynamoDB data by REST API (Api Gateway) in conjunction with Lambda.**
+
+## Local use - 📌
 
 ### Github 🐱‍👤
 
@@ -85,9 +94,32 @@
 
 ## Screenshots 📸 -
 
+### Routes:
+
+- **`"BASE_URL/"` - For home page**
+
+### Dynamic routes + Back routes:
+
+- **`"BASE_URL/:word"` - For the result of a word search - all parts of speech**
+- **`"BASE_URL/:word/:partOfSpeech"` - For a result of a word search - in a specific parts of speech**
+- **`"BASE_URL/part-of-speech/:part"` - Receiving a random word in a specific parts of speech**
+- **`"BASE_URL/part-of-speech/:part?letter=a"` - Receiving a random word in a specific parts of speech that contain specific word**
+
+### 📲 Front interfaces:
+
 ### <img src="./README-PICS/home.png"/><img src="./README-PICS/one-random.png"/>
 
 ### <img src="./README-PICS/some-word.png"/><img src="./README-PICS/not-found.png"/>
+
+### 💻 Back JSON results:
+
+### `BASE_URL/hallo` result:
+
+### <img src="./README-PICS/back-halloo.png" width="80%"/>
+
+### `BASE_URL/part-of-speech/verbs` result:
+
+### <img src="./README-PICS/back-verbs.png" width="50%"/>
 
 ---
 
