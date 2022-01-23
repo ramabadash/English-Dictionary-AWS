@@ -90,13 +90,9 @@
 
 ## Screenshots 📸 -
 
-### <img src="./README-PICS/home.png"/>
+### <img src="./README-PICS/home.png"/><img src="./README-PICS/one-random.png"/>
 
-### <img src="./README-PICS/one-random.png"/>
-
-### <img src="./README-PICS/some-word.png"/>
-
-### <img src="./README-PICS/not-found.png"/>
+### <img src="./README-PICS/some-word.png"/><img src="./README-PICS/not-found.png"/>
 
 ---
 
