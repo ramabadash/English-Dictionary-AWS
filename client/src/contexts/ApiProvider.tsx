@@ -13,7 +13,7 @@ function ApiProvider({ children }: { children: JSX.Element[] | JSX.Element }) {
   /***** STATES *****/
   const [words, setWords] = useState<WordObj[]>([]); // Arr of word result
   const [loading, setLoading] = useState(false); // Is loading
-  const BASE_URL = 'http://localhost:3000';
+  const BASE_URL = 'https://yt2wd1g8hj.execute-api.eu-west-1.amazonaws.com/dev';
 
   /***** FUNCTIONS - NETWORKING *****/
 

@@ -19,6 +19,7 @@
   "homepage": "https://github.com/ramabadash/English-Dictionary-AWS#readme",
   "dependencies": {
     "aws-sdk": "^2.1060.0",
+    "cors": "^2.8.5",
     "express": "^4.17.2",
     "serverless-http": "^2.7.0"
   },
