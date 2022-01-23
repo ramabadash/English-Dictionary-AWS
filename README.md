@@ -58,10 +58,6 @@
 
 ---
 
-## Public use -
-
-#### Link to S3- ✨NOT YET ✨
-
 ## Local use -
 
 ### Github 🐱‍👤
