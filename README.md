@@ -52,7 +52,6 @@
 
 #### Back:
 
-- **Fix cors error - make it work globally**
 - **errorHandler to server**
 - **DB - Initialization by script and not by user**
 
