@@ -115,11 +115,11 @@
 
 ### `BASE_URL/hallo` result:
 
-### <img src="./README-PICS/back-halloo.png" width="80%"/>
+### <img src="./README-PICS/back-halloo.jpg" width="80%"/>
 
 ### `BASE_URL/part-of-speech/verbs` result:
 
-### <img src="./README-PICS/back-verbs.png" width="50%"/>
+### <img src="./README-PICS/back-verbs.jpg" width="50%"/>
 
 ---
 
