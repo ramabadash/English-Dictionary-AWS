@@ -11,7 +11,7 @@
 - **[React](https://reactjs.org/)**
 - **[TypeScript](https://www.typescriptlang.org/)**
 - **[React Router DOM](https://www.npmjs.com/package/react-router-dom)**
-- **[Serverless framework](https://www.serverless.com/)- For writing and uploading the backend as AWS services.**
+- **[Serverless framework](https://www.serverless.com/)- For writing and uploading the backend as AWS lambda services.**
 
 #### AWS Services - ☁
 
@@ -19,11 +19,11 @@
 - **DynamoDB - In order to store over 100,000 words 🗃**
 - **S3 - In order to serve the front as static files 🗑🗂**
 
-#### Packages 📦
+#### Packages - 📦
 
 - **Front-end : [Axios](https://www.npmjs.com/package/axios) - For API requests | [Notyf](https://www.npmjs.com/package/notyf) - for nice popUp messages |**
 
-- **Back-end : [Express](https://www.npmjs.com/package/express) | [AWS-SDK](https://www.npmjs.com/package/aws-sdk)**
+- **Back-end : [Express](https://www.npmjs.com/package/express) | [AWS-SDK](https://www.npmjs.com/package/aws-sdk) |**
 
 ---
 
@@ -59,12 +59,12 @@
 
 ## Global use - 🌎
 
-### ✨ http://dictionary-rama.s3-website-eu-west-1.amazonaws.com ✨
+### ✨ [Visit my website!](http://dictionary-rama.s3-website-eu-west-1.amazonaws.com) ✨
 
-#### Currently blocked so it does not cost me any money ❌💸
+#### Maybe it's blocked so you does not cost me any money 😏❌💸
 
 - **The Front was served in S3 bucket as a static file.**
-- **Using DynamoDB data by REST API (Api Gateway) in conjunction with Lambda.**
+- **The backend works with - DynamoDB to store data and serve the app by REST API (Api Gateway) in conjunction with Lambda serverless function.**
 
 ## Local use - 📌
 
@@ -94,32 +94,50 @@
 
 ## Screenshots 📸 -
 
-### Routes:
+## 📲 Front interfaces:
 
-- **`"BASE_URL/"` - For home page**
+### Dynamic routes:
 
-### Dynamic routes + Back routes:
-
-- **`"BASE_URL/:word"` - For the result of a word search - all parts of speech**
-- **`"BASE_URL/:word/:partOfSpeech"` - For a result of a word search - in a specific parts of speech**
-- **`"BASE_URL/part-of-speech/:part"` - Receiving a random word in a specific parts of speech**
-- **`"BASE_URL/part-of-speech/:part?letter=a"` - Receiving a random word in a specific parts of speech that contain specific word**
-
-### 📲 Front interfaces:
+- **`"BASE_URL/"` - For home page (picture I below ⬇)**
+- **`"BASE_URL/:word"` - For the result of a word search - all parts of speech (picture II below ⬇)**
+- **`"BASE_URL/:word/:partOfSpeech"` - For a result of a word search - in a specific parts of speech (picture II below ⬇)**
+- **`"BASE_URL/part-of-speech/:part"` - Receiving a random word in a specific parts of speech (picture III ⬇)**
+- **`"BASE_URL/part-of-speech/:part?letter=a"` - Receiving a random word in a specific parts of speech that contain specific word (picture III below ⬇)**
 
 ### <img src="./README-PICS/home.png"/><img src="./README-PICS/one-random.png"/>
 
 ### <img src="./README-PICS/some-word.png"/><img src="./README-PICS/not-found.png"/>
 
-### 💻 Back JSON results:
+## 💻 Back JSON results:
 
-### `BASE_URL/hallo` result:
+### Routes:
 
-### <img src="./README-PICS/back-halloo.jpg" width="80%"/>
+- **`"BASE_URL/:word"` - For the result of a word search - all parts of speech**
+- **`"BASE_URL/:word/:partOfSpeech"` - For a result of a word search - in a specific parts of speech**
+- **`"BASE_URL/part-of-speech/:part"` - Receiving a random word in a specific parts of speech**
+- **`"BASE_URL/part-of-speech/:part?letter=a"` - Receiving a random word in a specific parts of speech that contain specific letter / letter combination**
+
+### `BASE_URL/halloo` result:
+
+### <img src="./README-PICS/back-halloo.jpg"/>
+
+### `BASE_URL/halloo/verbs` result:
+
+### <img src="./README-PICS/back-halloo-verbs.png"/>
 
 ### `BASE_URL/part-of-speech/verbs` result:
 
-### <img src="./README-PICS/back-verbs.jpg" width="50%"/>
+### <img src="./README-PICS/back-verbs.jpg"/>
+
+### `BASE_URL/part-of-speech/verbs?letter=b` result:
+
+### <img src="./README-PICS/back-verbs-letter.png"/>
+
+---
+
+## My AWS diagram template 📈 -
+
+### <img src="./README-PICS/template1-designer.png"/>
 
 ---
 
