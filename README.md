@@ -49,11 +49,15 @@
 
 - **An indication that the words can be clicked**
 - **My Footer**
+- **Tests for my code**
+- **Github workflow - deploy to s3 on every marge to main**
 
 #### Back:
 
 - **errorHandler to server**
 - **DB - Initialization by script and not by user**
+- **Github workflow - deploy with serverless on every marge to main**
+- **Tests for my code**
 
 ---
 
